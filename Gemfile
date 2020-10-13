@@ -34,6 +34,7 @@ group :development, :test do
   gem "factory_bot_rails", "~> 4.0"
   gem "letter_opener"
   gem "rspec_junit_formatter"
+  gem "faker"
 end
 
 group :development do
