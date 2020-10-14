@@ -25,7 +25,6 @@ class Car < ApplicationRecord
 
   as_enum :status, %w{in_process ready}, prefix: true
 
-
   def completed?
     self.status_ready?
   end
@@ -37,7 +36,7 @@ class Car < ApplicationRecord
   private
 
     def status_by_assembly_line
-      if !assembly_line_id.blank? && status_cd == self.klass.statuses["ready"]
+      if !assembly_line_id.blank? && status_cd == self.class.statuses["ready"]
         errors.add(:status_cd, "cannot be ready if it assigned to assembly line")
       end
     end
