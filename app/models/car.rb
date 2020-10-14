@@ -18,7 +18,7 @@ class Car < ApplicationRecord
 
   belongs_to :model
   belongs_to :assembly_line, optional: true
-  has_many :components
+  has_many :components, dependent: :destroy
 
   validates :status_cd, presence: true
 
