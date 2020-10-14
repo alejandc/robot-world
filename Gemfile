@@ -20,6 +20,7 @@ gem "simple_enum"
 # Background process
 gem "sidekiq"
 gem "httparty"
+gem "rails-observers"
 
 # Reduces boot times through caching; required in config/boot.rb
 gem "bootsnap", ">= 1.4.2", require: false

@@ -8,7 +8,7 @@ class RobotBuilderJob
     components_list = Component.types.keys
 
     10.times do |index|
-      status = Car.statuses.keys.sample
+      status = Car.statuses.values.sample
 
       car = CarFactory.build(
         models.sample,

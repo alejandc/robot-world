@@ -156,6 +156,8 @@ GEM
       nokogiri (>= 1.6)
     rails-html-sanitizer (1.3.0)
       loofah (~> 2.3)
+    rails-observers (0.1.5)
+      activemodel (>= 4.0)
     rails-perftest (0.0.7)
     railties (6.0.3.4)
       actionpack (= 6.0.3.4)
@@ -262,6 +264,7 @@ DEPENDENCIES
   pry-byebug
   puma (~> 4.1)
   rails (~> 6.0.3, >= 6.0.3.4)
+  rails-observers
   rails-perftest
   redis (~> 4.0)
   rspec-rails

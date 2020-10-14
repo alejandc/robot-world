@@ -9,7 +9,7 @@ class CarFactory
     Car.new(
       model: model,
       assembly_line: (Car.statuses[:ready] === status) ? nil : assembly_line,
-      status: status.to_sym
+      status_cd: status
     )
   end
 end
