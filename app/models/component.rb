@@ -19,4 +19,7 @@ class Component < ApplicationRecord
   validates :type_cd, presence: true
 
   as_enum :type, %w{wheels chasis laser computer engine seats}, prefix: true
+
+  scope :with_error, -> { where(error: true) }
+  scope :computer, -> { find_by(type_cd: self.klass.types["computer"]) }
 end

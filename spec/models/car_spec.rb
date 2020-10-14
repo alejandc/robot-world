@@ -32,5 +32,12 @@ RSpec.describe Car, type: :model do
         expect(subject).to_not be_valid
       end
     end
+
+    it "is not valid with invalid status ready and assembly line assigned" do
+      subject.status_cd = Car.statuses["ready"]
+      subject.assembly_line_id = create(:assembly_line).id
+
+      expect(subject).to_not be_valid
+    end
   end
 end
