@@ -1,4 +1,4 @@
-class Warehouse
+class Salehouse
   @instance = new
 
   private_class_method :new
@@ -8,7 +8,7 @@ class Warehouse
   end
 
   def parked_cars
-    Car.includes(:model).status_finisheds
+    Car.includes(:model).status_readies
   end
 
   def parked_cars_by_model

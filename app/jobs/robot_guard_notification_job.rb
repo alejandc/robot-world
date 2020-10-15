@@ -1,4 +1,4 @@
-class RobotGuardJob
+class RobotGuardNotificationJob
   include Sidekiq::Worker
   sidekiq_options queue: "default"
 
@@ -8,7 +8,7 @@ class RobotGuardJob
     if component.present?
       message = "Compoment(#{component_id}) #{component.type} with error (Car #{component.car_id})"
 
-      if !ENV["URL_ERROR_NOTIFICATION"].blank? && ENV["ENABLE_ERROR_NOTIFICATIONS"] == "true"
+      if !ENV["URL_ERROR_NOTIFICATION"].blank? && ENV["ERROR_NOTIFICATIONS"] == "enabled"
         response = HTTParty.post(
           ENV["URL_ERROR_NOTIFICATION"],
           body: { "text" => message }.to_json,

@@ -14,4 +14,9 @@ namespace :factory do
       puts "....Robot builder already started..."
     end
   end
+
+  desc "Execute robot guard stock management"
+  task stock_management: :environment do
+    RobotGuardStockManagementJob.perform_async
+  end
 end

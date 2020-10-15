@@ -23,10 +23,10 @@ class Car < ApplicationRecord
   validates :status_cd, presence: true
   validate :status_by_assembly_line
 
-  as_enum :status, %w{in_process ready}, prefix: true
+  as_enum :status, %w{in_process finished ready_to_sell sold}, prefix: true
 
   def completed?
-    self.status_ready?
+    self.status_finished?
   end
 
   def computer
@@ -36,8 +36,8 @@ class Car < ApplicationRecord
   private
 
     def status_by_assembly_line
-      if !assembly_line_id.blank? && status_cd == self.class.statuses["ready"]
-        errors.add(:status_cd, "cannot be ready if it assigned to assembly line")
+      if !assembly_line_id.blank? && status_cd != self.class.statuses["in_process"]
+        errors.add(:status_cd, "only can be in_process when has assembly line")
       end
     end
 end

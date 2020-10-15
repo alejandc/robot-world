@@ -8,7 +8,7 @@ class CarFactory
   def self.build(model, assembly_line, status)
     Car.new(
       model: model,
-      assembly_line: (Car.statuses[:ready] === status) ? nil : assembly_line,
+      assembly_line: (Car.statuses[:in_process] === status) ? assembly_line : nil,
       status_cd: status
     )
   end
