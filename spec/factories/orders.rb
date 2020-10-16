@@ -15,5 +15,6 @@
 FactoryBot.define do
   factory :order do
     car { create(:car) }
+    status_cd { Order.statuses["finished"] }
   end
 end

@@ -41,4 +41,17 @@ RSpec.describe Car, type: :model do
       expect(subject).to_not be_valid
     end
   end
+
+  describe "Methods" do
+    subject { build(:car, status_cd: Car.statuses["finished"]) }
+
+    it "completed? false" do
+      expect(subject.completed?).to be_truthy
+    end
+
+    it "completed? true" do
+      subject.status_in_process!
+      expect(subject.completed?).to be_falsey
+    end
+  end
 end

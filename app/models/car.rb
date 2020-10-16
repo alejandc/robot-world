@@ -29,7 +29,7 @@ class Car < ApplicationRecord
   scope :by_model, -> (model_id) { where(model_id: model_id.to_i) }
 
   def completed?
-    self.status_finished?
+    !self.status_in_process?
   end
 
   def computer

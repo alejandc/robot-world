@@ -21,5 +21,14 @@ RSpec.describe Order, type: :model do
     it "is valid with valid attributes" do
       expect(subject).to be_valid
     end
+
+    [:status_cd].each do |selector|
+      it { should validate_presence_of(selector) }
+
+      it "is not valid without #{selector}" do
+        subject.send("#{selector}=", nil)
+        expect(subject).to_not be_valid
+      end
+    end
   end
 end
