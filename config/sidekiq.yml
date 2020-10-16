@@ -1,4 +1,6 @@
 :concurrency: 1
 :queues:
   - cleaner
+  - builder
+  - change_request
   - default
