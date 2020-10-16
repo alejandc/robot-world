@@ -11,8 +11,8 @@ class RobotBuilderJob
       status = [Car.statuses["in_process"], Car.statuses["finished"]].sample
 
       car = CarFactory.build(
-        models.sample,
-        assembly_lines.sample,
+        models.sample.id,
+        assembly_lines.sample.id,
         status
       )
       car.save!

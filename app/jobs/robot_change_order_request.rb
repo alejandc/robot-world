@@ -17,17 +17,12 @@ class RobotChangeOrderRequestJob
       order.status_change_request!
 
       # Generate new order for new car model
-      new_order = Order.create!(
-        car: car,
-        status_cd: Order.statuses["finished"]
-      )
+      new_order = OrderFactory.build(car.id, Order.statuses["finished"])
+      new_order.save!
 
       # Create change order to track the change
-      ChangeOrder.create!(
-        order_id: order.id,
-        new_order: new_order.id,
-        model_id: model_id,
-      )
+      change_order = ChangeOrderFactory.build(order.id, model_id, new_order.id)
+      chane_order.save!
     else
       RobotChangeOrderRequestJob.perform_in(1.minutes, order_id, model_id)
     end

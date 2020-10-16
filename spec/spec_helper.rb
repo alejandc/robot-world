@@ -2,6 +2,7 @@ require "rails_helper"
 require "rspec-rails"
 require "database_cleaner/active_record"
 require "sidekiq/testing"
+require "sidekiq/testing/inline"
 
 Sidekiq::Testing.fake!
 
