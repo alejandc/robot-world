@@ -8,7 +8,7 @@ class Warehouse
   end
 
   def parked_cars
-    Car.includes(:model).status_finisheds
+    Car.includes(:model, :components).status_finisheds
   end
 
   def parked_cars_by_model

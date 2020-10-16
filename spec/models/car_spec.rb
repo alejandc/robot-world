@@ -13,6 +13,7 @@
 #
 #  index_cars_on_assembly_line_id  (assembly_line_id)
 #  index_cars_on_model_id          (model_id)
+#  index_cars_on_status_cd         (status_cd)
 #
 require 'rails_helper'
 

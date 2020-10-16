@@ -4,6 +4,13 @@ class RobotGuardStockManagementJob
 
   # Move cars from factory stock to sales/store stock
   def perform
-    Warehouse.parked_cars.update_all(status_cd: Car.statuses["ready_to_sell"])
+    valid_car_ids = []
+    Warehouse.parked_cars.each do |car|
+      if !car.computer.any_error?
+        valid_car_ids.push(car_id)
+      end
+    end
+
+    Car.where(id: valid_car_ids).update_all(status_cd: Car.statuses["ready_to_sell"])
   end
 end

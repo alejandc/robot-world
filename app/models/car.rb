@@ -13,6 +13,7 @@
 #
 #  index_cars_on_assembly_line_id  (assembly_line_id)
 #  index_cars_on_model_id          (model_id)
+#  index_cars_on_status_cd         (status_cd)
 #
 class Car < ApplicationRecord
 
@@ -24,6 +25,8 @@ class Car < ApplicationRecord
   validate :status_by_assembly_line
 
   as_enum :status, %w{in_process finished ready_to_sell sold}, prefix: true
+
+
 
   def completed?
     self.status_finished?

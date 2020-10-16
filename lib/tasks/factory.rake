@@ -19,4 +19,9 @@ namespace :factory do
   task stock_management: :environment do
     RobotGuardStockManagementJob.perform_async
   end
+
+  desc "Execute robot buyer"
+  task stock_management: :environment do
+    RobotGuardStockManagementJob.perform_async
+  end
 end
