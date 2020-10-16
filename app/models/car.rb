@@ -26,7 +26,7 @@ class Car < ApplicationRecord
 
   as_enum :status, %w{in_process finished ready_to_sell sold}, prefix: true
 
-
+  scope :by_model, -> (model_id) { where(model_id: model_id.to_i) }
 
   def completed?
     self.status_finished?

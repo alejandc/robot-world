@@ -11,7 +11,11 @@ class Salehouse
     Car.includes(:model).status_readies
   end
 
-  def parked_cars_by_model
+  def cars_by_model(model_id)
+    parked_cars.by_model(model_id)
+  end
+
+  def cars_grouped_by_model
     parked_cars.group_by {|car| car.model.name}
   end
 end

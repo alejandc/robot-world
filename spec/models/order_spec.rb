@@ -3,6 +3,7 @@
 # Table name: orders
 #
 #  id         :bigint           not null, primary key
+#  status_cd  :integer
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #  car_id     :bigint
@@ -20,7 +21,5 @@ RSpec.describe Order, type: :model do
     it "is valid with valid attributes" do
       expect(subject).to be_valid
     end
-
-    it { should validate_uniqueness_of(:car_id) }
   end
 end

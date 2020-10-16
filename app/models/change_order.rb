@@ -15,4 +15,9 @@
 #  index_change_orders_on_order_id  (order_id)
 #
 class ChangeOrder < ApplicationRecord
+
+  belongs_to :model
+  belongs_to :order
+
+  as_enum :status, %w{pending finished}, prefix: true
 end

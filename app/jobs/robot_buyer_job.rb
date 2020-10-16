@@ -12,7 +12,10 @@ class RobotBuyerJob
 
     # Create orders for cars
     cars.each do |car|
-      Order.create!(car: car)
+      Order.create!(
+        car: car,
+        status_cd: Order.statuses["finished"]
+      )
       car.update_attribute(status_cd: Car.statuses["sold"])
     end
   end

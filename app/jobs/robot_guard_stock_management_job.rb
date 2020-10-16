@@ -5,7 +5,7 @@ class RobotGuardStockManagementJob
   # Move cars from factory stock to sales/store stock
   def perform
     valid_car_ids = []
-    Warehouse.parked_cars.each do |car|
+    Warehouse.instance.parked_cars.each do |car|
       if !car.computer.any_error?
         valid_car_ids.push(car_id)
       end
