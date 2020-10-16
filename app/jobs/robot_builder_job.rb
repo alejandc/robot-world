@@ -1,6 +1,6 @@
 class RobotBuilderJob
   include Sidekiq::Worker
-  sidekiq_options queue: "default"
+  sidekiq_options queue: "builder"
 
   def perform
     models = Model.all
