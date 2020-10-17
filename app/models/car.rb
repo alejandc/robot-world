@@ -33,11 +33,10 @@ class Car < ApplicationRecord
   end
 
   def computer
-    self.components.computer.extend(ComputerComponentDecorator)
+    self.components.computer.present? && self.components.computer.extend(ComputerComponentDecorator)
   end
 
   private
-
     def status_by_assembly_line
       if !assembly_line_id.blank? && status_cd != self.class.statuses["in_process"]
         errors.add(:status_cd, "only can be in_process when has assembly line")

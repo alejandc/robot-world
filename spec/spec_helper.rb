@@ -3,6 +3,17 @@ require "rspec-rails"
 require "database_cleaner/active_record"
 require "sidekiq/testing"
 require "sidekiq/testing/inline"
+require "simplecov"
+
+SimpleCov.start do
+  add_filter "/test/"
+  add_filter "/config/"
+  add_filter "/spec/"
+
+  add_group "Models", "app/models"
+  add_group "Jobs", "app/jobs"
+  add_group "Factories", "app/factories"
+end
 
 Sidekiq::Testing.fake!
 

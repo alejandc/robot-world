@@ -1,4 +1,11 @@
 Rails.application.configure do
+  config.before_configuration do
+    env_file = File.join(Rails.root, "config", "local_env.yml")
+    YAML.load(File.open(env_file)).each do |key, value|
+      ENV[key.to_s] = value
+    end if File.exist?(env_file)
+  end
+
   # In the development environment your application's code is reloaded on
   # every request. This slows down response time but is perfect for development
   # since you don't have to restart the web server when you make code changes.

@@ -8,7 +8,7 @@ class ChangeOrderFactory
   def self.build(order_id, model_id, new_order_id)
     ChangeOrder.new(
       order_id: order_id,
-      new_order: new_order_id,
+      new_order_id: new_order_id,
       model_id: model_id,
     )
   end

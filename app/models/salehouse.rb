@@ -8,7 +8,7 @@ class Salehouse
   end
 
   def parked_cars
-    Car.includes(:model).status_readies
+    Car.includes(:model).status_ready_to_sells
   end
 
   def cars_by_model(model_id)

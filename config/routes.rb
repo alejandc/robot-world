@@ -3,4 +3,6 @@ Rails.application.routes.draw do
   root to: "wellcome#index"
 
   mount Sidekiq::Web => "/sidekiq"
+
+  post "wellcome", to: "wellcome#notification"
 end

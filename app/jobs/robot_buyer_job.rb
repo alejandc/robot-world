@@ -15,7 +15,7 @@ class RobotBuyerJob
       order = OrderFactory.build(car.id, Order.statuses["finished"])
       order.save!
 
-      car.update_attributes!(status_cd: Car.statuses["sold"])
+      car.update!(status_cd: Car.statuses["sold"])
     end
   end
 end
