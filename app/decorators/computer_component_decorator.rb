@@ -1,6 +1,6 @@
 module ComputerComponentDecorator
   def components_with_error
-    self.car&.components&.with_error || []
+    self.car.components.with_error || []
   end
 
   def any_error?
