@@ -24,7 +24,7 @@ gem "rails-observers"
 
 # Reduces boot times through caching; required in config/boot.rb
 gem "bootsnap", ">= 1.4.2", require: false
-
+gem "faker"
 group :development, :test do
   gem "pry"
   gem "pry-byebug"
@@ -35,7 +35,6 @@ group :development, :test do
   gem "factory_bot_rails", "~> 4.0"
   gem "letter_opener"
   gem "rspec_junit_formatter"
-  gem "faker"
 end
 
 group :development do
