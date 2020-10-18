@@ -27,7 +27,9 @@ class RobotChangeOrderRequestJob
       change_order = ChangeOrderFactory.build(order.id, model_id, new_order.id)
       change_order.save!
     else
-      RobotChangeOrderRequestJob.perform_in(1.minutes, order_id, model_id)
+      if order.present?
+        RobotChangeOrderRequestJob.perform_in(1.minutes, order_id, model_id)
+      end
     end
   end
 end
